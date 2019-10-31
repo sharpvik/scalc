@@ -1,24 +1,50 @@
 import sys
+import util
 
 
+def unary(func):
+    def foo(stack):
+        if len(stack) < 1:
+            util.log(f'Stack is too small for {func.__name__}. Skipping...')
+            return
+        func(stack)
+
+    return foo
+
+def binary(func):
+    def foo(stack):
+        if len(stack) < 2:
+            util.log(f'Stack is too small for {func.__name__}. Skipping...')
+            return
+        func(stack)
+
+    return foo
+
+
+@binary
 def add(stack):
     stack.push( stack.pop() + stack.pop() )
 
+@binary
 def sub(stack):
     y, x = stack.pop(), stack.pop()
     stack.push(x - y)
 
+@binary
 def mul(stack):
     stack.push( stack.pop() * stack.pop() )
 
+@binary
 def div(stack):
     y, x = stack.pop(), stack.pop()
     stack.push(x / y)
 
+@binary
 def pwr(stack):
     y, x = stack.pop(), stack.pop()
     stack.push(x ** y)
 
+@unary
 def fac(stack):
     x = int( stack.pop() )
     f = 1
@@ -26,12 +52,15 @@ def fac(stack):
         f *= i
     stack.push(f)
 
+@unary
 def eql(stack):
     print( stack.peek() )
 
+@unary
 def pop(stack):
     stack.pop()
 
+@unary
 def emt(stack):
     print( stack.pop() )
 
