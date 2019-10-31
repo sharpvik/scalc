@@ -7,7 +7,7 @@
 ## How to Run
 
 ```bash
-git clone ...
+git clone https://github.com/sharpvik/scalc.git
 cd scalc
 chmod +x main.py
 ./main.py
