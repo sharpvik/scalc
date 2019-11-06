@@ -6,4 +6,3 @@ def log(msg):
 def err(msg):
     print(f'[ERR] {msg}')
     sys.exit(1)
-

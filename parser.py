@@ -1,5 +1,4 @@
-import shared
-import util
+import shared, util
 
 
 def parse(line):
@@ -18,7 +17,6 @@ def tokenize(items):
         try:
             toks.append(  ( 'number', number_type(it) )  )
         except ValueError:
-            util.err(f'Invalid item \'{it}\' in stream')
+            util.err(f'Invalid item \'{it}\' in stream.')
 
     return toks
-            

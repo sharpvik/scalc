@@ -1,5 +1,4 @@
-import sys
-import util
+import sys, util
 
 
 def unary(func):
@@ -46,7 +45,7 @@ def pwr(stack):
 
 @unary
 def fac(stack):
-    x = int( stack.pop() )
+    x = abs(  int( stack.pop() )  )
     f = 1
     for i in range(1, x + 1):
         f *= i
