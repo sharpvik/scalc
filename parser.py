@@ -11,12 +11,11 @@ def tokenize(items):
     for it in items:
         if it in shared.OPERATORS:
             toks.append( ('operator', it) )
-            continue
-
-        number_type = float if '.' in it else int
-        try:
-            toks.append(  ( 'number', number_type(it) )  )
-        except ValueError:
-            util.err(f'Invalid item \'{it}\' in stream.')
+        else:
+            number_type = float if '.' in it else int
+            try:
+                toks.append(  ( 'number', number_type(it) )  )
+            except ValueError:
+                util.err(f'Invalid item \'{it}\' in stream.')
 
     return toks
