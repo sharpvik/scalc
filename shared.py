@@ -1,4 +1,4 @@
-import sys, util
+import os, sys, util
 
 
 def unary(func):
@@ -66,6 +66,9 @@ def emt(stack):
 def dis(stack):
     print(stack)
 
+def clr(stack):
+    os.system('clear')
+
 def ext(stack):
     sys.exit(0)
 
@@ -81,5 +84,6 @@ OPERATORS = {
     '#': pop,
     '$': emt,
     '?': dis,
+    'c': clr,
     'q': ext,
 }
